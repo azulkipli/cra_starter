@@ -1,6 +1,6 @@
 # CRA Starter
 
-ReactJS starter template with additional feature hot-reload using react-hot-reload, async import with react-loadable, browser history router with react-router-dom.
+ReactJS starter template with cool features such as hot-reload using react-hot-reload, async import with react-loadable, browser history router with react-router-dom.
 
 CRA Starter was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).<br/>
 Other libraries used;
