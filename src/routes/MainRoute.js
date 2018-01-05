@@ -5,12 +5,12 @@ import fakeDelay from "../utils/fakeDelay";
 import Loading from "../components/Loading";
 
 const Home = Loadable({
-  loader: () => fakeDelay(500).then(() => import(/* webpackChunkName: "home"*/ "../components/Home")),
+  loader: () => fakeDelay(200).then(() => import(/* webpackChunkName: "home"*/ "../components/Home")),
   loading: () => Loading("Homepage")
 });
 
 const Todos = Loadable({
-  loader: () => fakeDelay(500).then(() => import(/* webpackChunkName: "todos"*/ "../components/Todos")),
+  loader: () => fakeDelay(200).then(() => import(/* webpackChunkName: "todos"*/ "../components/Todos")),
   loading: () => Loading("Todos")
 });
 

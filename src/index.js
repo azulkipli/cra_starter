@@ -3,13 +3,14 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import { AppContainer } from "react-hot-loader";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, withRouter } from "react-router-dom";
 import { Provider } from "mobx-react";
 import * as store from "./stores";
 
-import "semantic-ui-css/semantic.min.css";
-import "./global.css";
+import "./semantic/semantic.min.css";
+// import "./global.css";
 
+// reaquired to use react-hot-loader
 require("react-hot-loader/patch");
 
 const rootEl = document.getElementById("root");
@@ -25,6 +26,6 @@ const render = Component =>
     rootEl
   );
 
-render(App);
-if (module.hot) module.hot.accept("./App", () => render(App));
+render(withRouter(App));
+if (module.hot) module.hot.accept("./App", () => render(withRouter(App)));
 registerServiceWorker();

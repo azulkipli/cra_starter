@@ -1,59 +1,38 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Sidebar, Menu } from "semantic-ui-react";
 
+const menuStyle = {
+  borderTop: "none",
+  borderBottom: "none",
+  borderLeft: "none"
+};
 const menuItemStyle = {
   textAlign: "left"
 };
 
 class SidebarMenu extends Component {
-  state = {};
-  handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name });
-    this.props.toggleVisibility();
-  };
   render() {
-    const { activeItem } = this.state;
+    const { visible, goTo } = this.props;
     return (
       <Sidebar
         as={Menu}
         id="sidebarMenu"
         animation="overlay"
         width="thin"
-        visible={this.props.visible}
+        visible={visible}
         icon="labeled"
         vertical
+        style={menuStyle}
       >
-        <Menu.Item
-          style={menuItemStyle}
-          as={Link}
-          name="home"
-          to="/"
-          active={activeItem === "home"}
-          onClick={this.handleItemClick}
-        >
+        <Menu.Item style={menuItemStyle} onClick={() => goTo("/")}>
           Home
         </Menu.Item>
 
-        <Menu.Item
-          style={menuItemStyle}
-          as={Link}
-          name="todos"
-          to="todos"
-          active={activeItem === "todos"}
-          onClick={this.handleItemClick}
-        >
+        <Menu.Item style={menuItemStyle} onClick={() => goTo("/todos")}>
           Todos
         </Menu.Item>
 
-        <Menu.Item
-          style={menuItemStyle}
-          as={Link}
-          name="status"
-          to="status"
-          active={activeItem === "status"}
-          onClick={this.handleItemClick}
-        >
+        <Menu.Item style={menuItemStyle} onClick={() => goTo("/status")}>
           Completed
         </Menu.Item>
       </Sidebar>

@@ -63,7 +63,7 @@ class Notification {
         break;
     }
     // scroll to the top
-    // window.scroll(0, 0);
+    window.scroll(0, 0);
 
     if (this.open && autohide === true) {
       setTimeout(() => {

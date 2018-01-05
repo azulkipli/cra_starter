@@ -1,3 +1,7 @@
+/* #appSegment {
+  outline: solid 1px red;
+} */
+
 div.content > h3.title {
   text-align: center;
 }
