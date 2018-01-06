@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const StatusComponent = () => (
-  <div>
+  <div className="ui container">
     <ul>
       <li>Learn Angular 4</li>
       <li>Master Spring Boot</li>
     </ul>
   </div>
-)
+);
 
-export default StatusComponent
+export default StatusComponent;

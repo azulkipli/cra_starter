@@ -1,5 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
+import { observer, inject } from "mobx-react";
 
-const Loading = title => <div>Loading... {title}</div>;
+@inject("gui")
+@observer
+class Loading extends Component {
+  componentWillMount = () => {
+    this.props.gui.openLoader();
+  };
+  componentDidMount = () => {
+    setTimeout(() => {
+      this.props.gui.closeLoader();
+    }, 300);
+  };
+
+  render() {
+    return <div />;
+  }
+}
 
 export default Loading;

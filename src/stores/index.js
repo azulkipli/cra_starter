@@ -1,4 +1,5 @@
 import notification from "./Notification";
+import gui from "./Gui";
 // import product from './Product';
 // import user from './User';
 // import cart from './Cart';
@@ -9,4 +10,4 @@ import notification from "./Notification";
 // import inquiry from './Inquiry';
 
 // export { notification, user, product, cart, payment, form, content, order, inquiry };
-export { notification };
+export { notification, gui };

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import { AppContainer } from "react-hot-loader";
-import { BrowserRouter, withRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from "mobx-react";
 import * as store from "./stores";
 
@@ -26,6 +26,6 @@ const render = Component =>
     rootEl
   );
 
-render(withRouter(App));
-if (module.hot) module.hot.accept("./App", () => render(withRouter(App)));
+render(App);
+if (module.hot) module.hot.accept("./App", () => render(App));
 registerServiceWorker();

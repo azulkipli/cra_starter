@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Sidebar, Segment, Message } from "semantic-ui-react";
+import { Sidebar, Segment, Message, Loader, Dimmer } from "semantic-ui-react";
+import { withRouter } from "react-router-dom";
 
 import SidebarMenu from "./components/SidebarMenu";
 import Navheader from "./components/Navheader";
@@ -15,57 +16,51 @@ const pusableStyle = {
   borderRadius: "0px"
 };
 
-@inject("notification")
+@inject("notification", "gui")
 @observer
 class App extends Component {
-  state = { visible: false };
-
-  toggleSidebarMenu = () => {
-    this.setState({ visible: !this.state.visible });
-  };
-
-  clickPushable = () => (this.state.visible ? this.toggleSidebarMenu() : "");
-
   goTo = pathname => {
-    this.setState({ visible: false });
-    this.props.notification.attr({ open: false });
+    this.props.gui.attr({ sidebarMenuVisible: false });
     this.props.history.push(pathname);
   };
 
   render() {
-    const visible = this.state.visible;
-    const { notification } = this.props;
-    let pusherStyle = {
-      minHeight: "320px",
-      position: "relative",
-      posbackgroundColor: visible ? "rgba(0,0,0,0.25)" : ""
+    const { gui } = this.props;
+    const visible = gui.sidebarMenuVisible;
+    const pusherStyle = {
+      minHeight: window.innerHeight - 50
     };
-    console.warn("App props", this.props);
+    const dimmerStyle = {
+      minHeight: window.innerHeight - 50,
+      backgroundColor: "rgba(0,0,0,.5)"
+    };
     return (
       <div className="app">
-        <Navheader visible={visible} goTo={this.goTo} toggleSidebarMenu={this.toggleSidebarMenu} />
+        <Navheader goTo={this.goTo} />
         <Sidebar.Pushable style={pusableStyle} as={Segment}>
           <SidebarMenu visible={visible} goTo={this.goTo} />
-          <Sidebar.Pusher style={pusherStyle} onClick={this.clickPushable}>
+          <Sidebar.Pusher style={pusherStyle} dimmed={visible}>
             <Segment id="appSegment" basic>
+              <Dimmer active={gui.loaderActive} style={dimmerStyle}>
+                <Loader size="large">Loading</Loader>
+              </Dimmer>
               <Main />
             </Segment>
             {/* Show Notification  */}
-            {notification.open ? (
+            {gui.alertOpen ? (
               <Message
                 style={{ position: "fixed", top: "0", left: "3%", width: "94%" }}
-                className={"notification " + notification.showHide}
-                error={notification.error}
-                info={notification.info}
-                warning={notification.warning}
+                error={gui.alertType === "error" ? true : false}
+                info={gui.alertType === "info" ? true : false}
+                warning={gui.alertType === "warning" ? true : false}
                 onClick={() => {
-                  notification.close();
+                  gui.closeAlert();
                 }}
                 onDismiss={() => {
-                  notification.close();
+                  gui.closeAlert();
                 }}
-                header={notification.title}
-                content={<div dangerouslySetInnerHTML={{ __html: notification.message }} />}
+                header={gui.alertTitle}
+                content={<div dangerouslySetInnerHTML={{ __html: gui.alertMessage }} />}
               />
             ) : (
               ""
@@ -77,4 +72,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

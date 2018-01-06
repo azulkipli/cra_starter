@@ -1,19 +1,17 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-// import ListTodos from "../components/ListTodos";
-// import TodoDetail from "../components/TodoDetail";
 import Loadable from "react-loadable";
-import fakeDelay from "../utils/fakeDelay";
+// import fakeDelay from "../utils/fakeDelay";
 import Loading from "../components/Loading";
 
 const ListTodos = Loadable({
-  loader: () => fakeDelay(200).then(() => import(/* webpackChunkName: "list-todos"*/ "../components/ListTodos")),
-  loading: () => Loading("ListTodos")
+  loader: () => import(/* webpackChunkName: "list-todos"*/ "../components/ListTodos"),
+  loading: () => <Loading />
 });
 
 const TodoDetail = Loadable({
-  loader: () => fakeDelay(200).then(() => import(/* webpackChunkName: "list-todos"*/ "../components/TodoDetail")),
-  loading: () => Loading("TodoDetail")
+  loader: () => import(/* webpackChunkName: "list-todos"*/ "../components/TodoDetail"),
+  loading: () => <Loading />
 });
 
 const TodoRoute = () => (

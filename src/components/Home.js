@@ -1,60 +1,93 @@
 import React, { Component } from "react";
-import { Header, Grid, Button } from "semantic-ui-react";
+import { Header, Grid, Button, Icon } from "semantic-ui-react";
 import { observer, inject } from "mobx-react";
 
-@inject("notification")
+@inject("gui")
 @observer
 class Home extends Component {
-  componentDidMount = () => {
-    const { notification } = this.props;
-    // set(title = "", message = "", autohide = true, timeout = 5000, type = "info", scrollTo = "", min = 95)
-    notification.set(
-      "Welcome Home!",
+  showAlert = type => {
+    const { gui } = this.props;
+    // openAlert(title = "", message = "", autohide = true, timeout = 5000, type = "info", scrollTo = "", min = 95)
+    gui.openAlert(
+      "Welcome: " + type + "!",
       "Use react-hot-reload, mobx etc without eject with react-app-rewired",
       true,
-      3000,
-      "info"
+      5000,
+      type
     );
   };
 
   render() {
     return (
-      <div className="component">
+      <div className="ui container">
         <Header className="title" textAlign="center">
-          Beli pulsa gratis bitcoin gan!
+          Home tagline here!
         </Header>
 
-        <Grid columns="equal" divided inverted padded>
+        <Grid columns="equal" divided padded>
           <Grid.Row textAlign="center">
-            <Grid.Column>
-              <Button basic icon="dashboard" role="button" size="huge" aria-label="dashboard" />
+            <Grid.Column style={{ boxShadow: "none" }}>
+              <Button basic icon={<Icon name="dashboard" size="big" />} role="button" aria-label="dashboard" />
             </Grid.Column>
-            <Grid.Column>
-              <Button basic icon="help" size="huge" role="button" aria-label="help" />
+            <Grid.Column style={{ boxShadow: "none" }}>
+              <Button
+                basic
+                icon={<Icon name="help" size="big" />}
+                role="button"
+                aria-label="help"
+                onClick={() => this.props.history.push("/help")}
+              />
             </Grid.Column>
-            <Grid.Column>
-              <Button basic icon="heartbeat" size="huge" role="button" aria-label="heartbeat" />
+            <Grid.Column style={{ boxShadow: "none" }}>
+              <Button basic icon={<Icon name="heartbeat" size="big" />} role="button" aria-label="heartbeat" />
             </Grid.Column>
           </Grid.Row>
 
           <Grid.Row textAlign="center">
-            <Grid.Column>
-              <Button basic icon="protect" size="huge" role="button" aria-label="protect" />
+            <Grid.Column style={{ boxShadow: "none" }}>
+              <Button basic role="button" aria-label="recycle" circular icon={<Icon name="recycle" size="big" />} />
             </Grid.Column>
-            <Grid.Column>
-              <Button basic icon="shopping basket" size="huge" role="button" aria-label="shopping basket" />
+            <Grid.Column style={{ boxShadow: "none" }}>
+              <Button
+                basic
+                role="button"
+                aria-label="calendar"
+                circular
+                icon={<Icon name="snowflake outline" size="big" />}
+              />
+            </Grid.Column>
+            <Grid.Column style={{ boxShadow: "none" }}>
+              <Button basic role="button" aria-label="erase" circular icon={<Icon name="erase" size="big" />} />
             </Grid.Column>
           </Grid.Row>
 
           <Grid.Row textAlign="center">
-            <Grid.Column>
-              <Button basic icon="recycle" size="huge" role="button" aria-label="recycle" />
+            <Grid.Column style={{ boxShadow: "none" }}>
+              <Button
+                basic
+                icon={<Icon name="info circle" size="big" color="teal" />}
+                role="button"
+                aria-label="info"
+                onClick={() => this.showAlert("info")}
+              />
             </Grid.Column>
-            <Grid.Column>
-              <Button basic icon="calendar" size="huge" role="button" aria-label="calendar" />
+            <Grid.Column style={{ boxShadow: "none" }}>
+              <Button
+                basic
+                icon={<Icon name="warning circle" size="big" color="brown" />}
+                role="button"
+                aria-label="warning"
+                onClick={() => this.showAlert("warning")}
+              />
             </Grid.Column>
-            <Grid.Column>
-              <Button basic icon="erase" size="huge" role="button" aria-label="erase" />
+            <Grid.Column style={{ boxShadow: "none" }}>
+              <Button
+                basic
+                icon={<Icon name="warning sign" size="big" color="red" />}
+                role="button"
+                aria-label="error"
+                onClick={() => this.showAlert("error")}
+              />
             </Grid.Column>
           </Grid.Row>
         </Grid>
