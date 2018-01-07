@@ -20,6 +20,13 @@ class App extends Component {
     this.props.history.push(pathname);
   };
 
+  clickPushable = () => {
+    const { gui } = this.props;
+    if (gui.sidebarMenuVisible) {
+      gui.toggleSidebarMenu();
+    }
+  };
+
   render() {
     const { gui } = this.props;
     const visible = gui.sidebarMenuVisible;
@@ -30,19 +37,20 @@ class App extends Component {
       minHeight: window.innerHeight - 50,
       backgroundColor: "rgba(0,0,0,.5)"
     };
+
     return (
       <div className="app">
         <Navheader goTo={this.goTo} />
         <Sidebar.Pushable style={pusableStyle} as={Segment}>
           <SidebarMenu visible={visible} goTo={this.goTo} />
-          <Sidebar.Pusher style={pusherStyle} dimmed={visible}>
+          <Sidebar.Pusher style={pusherStyle} dimmed={visible} onClick={this.clickPushable}>
             <Segment id="appSegment" basic>
               <Dimmer active={gui.loaderActive} style={dimmerStyle}>
                 <Loader size="large">Loading</Loader>
               </Dimmer>
               <Main />
             </Segment>
-            {/* Show Notification  */}
+            {/* Show Alert  */}
             {gui.alertOpen ? (
               <Message
                 style={{ position: "fixed", top: "0", left: "3%", width: "94%" }}

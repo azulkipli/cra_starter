@@ -1,3 +1,4 @@
+// This file required by VSCode to support decorator use by mobx
 {
     "compilerOptions": {
         "experimentalDecorators": true,
