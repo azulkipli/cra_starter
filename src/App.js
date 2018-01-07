@@ -7,10 +7,6 @@ import Navheader from "./components/Navheader";
 import Main from "./Main";
 import { observer, inject } from "mobx-react";
 
-import "./semantic/components/segment.min.css";
-import "./semantic/components/menu.min.css";
-import "./semantic/components/message.min.css";
-
 const pusableStyle = {
   marginTop: "0px",
   borderRadius: "0px"
