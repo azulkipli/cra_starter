@@ -1,4 +1,4 @@
-# CRA Starter Semantic UI
+# CRA Semantic UI
 
 This is ReactJS starter template with some cool features such as hot-reload, async import for code splitting, browser history router with react-router-dom, and custom webpack config without eject using react-app-rewired.
 
@@ -14,14 +14,19 @@ Other libraries used;
 
 <!-- TOC -->
 
-* [CRA Starter Semantic UI](#cra-starter-semantic-ui)
+* [CRA Semantic UI](#cra-semantic-ui)
   * [Table Of Contens](#table-of-contens)
+  * [Demo](#demo)
   * [Requirements](#requirements)
   * [Development](#development)
   * [Testing](#testing)
   * [Production](#production)
 
 <!-- /TOC -->
+
+## Demo
+
+You can see demo CRA Semantic UI here: [DEMO CRA Semantic UI](https://cra_sui.surge.sh)
 
 ## Requirements
 
