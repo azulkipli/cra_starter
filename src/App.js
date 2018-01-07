@@ -16,7 +16,7 @@ const pusableStyle = {
   borderRadius: "0px"
 };
 
-@inject("notification", "gui")
+@inject("gui")
 @observer
 class App extends Component {
   goTo = pathname => {

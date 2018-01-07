@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Header } from "semantic-ui-react";
 import { observer, inject } from "mobx-react";
 
-@inject("notification")
+@inject("gui")
 @observer
 class Help extends Component {
   render() {

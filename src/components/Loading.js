@@ -10,7 +10,7 @@ class Loading extends Component {
   componentDidMount = () => {
     setTimeout(() => {
       this.props.gui.closeLoader();
-    }, 300);
+    }, 200);
   };
 
   render() {

@@ -1,3 +1,15 @@
 module.exports = {
-  vendors: ["prop-types", "react", "react-dom", "react-router-dom", "mobx", "mobx-react", "mobx-remotedev"]
+  vendors: [
+    "prop-types",
+    "axios",
+    "mobx",
+    "mobx-react",
+    "mobx-remotedev",
+    "react",
+    "react-dom",
+    "react-hot-loader",
+    "react-loadable",
+    "react-router-dom",
+    "semantic-ui-react"
+  ]
 };

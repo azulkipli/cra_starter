@@ -1,4 +1,3 @@
-import notification from "./Notification";
 import gui from "./Gui";
 // import product from './Product';
 // import user from './User';
@@ -9,5 +8,5 @@ import gui from "./Gui";
 // import order from './Order';
 // import inquiry from './Inquiry';
 
-// export { notification, user, product, cart, payment, form, content, order, inquiry };
-export { notification, gui };
+// export { user, product, cart, payment, form, content, order, inquiry };
+export { gui };
