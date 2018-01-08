@@ -1,8 +1,8 @@
 # CRA Semantic UI
 
-This is ReactJS starter template with some cool features such as hot-reload, async import for code splitting, browser history router with react-router-dom, and custom webpack config without eject using react-app-rewired.
+ReactJS starter template with some cool features such as hot-reload, async import for code splitting, browser history router with react-router-dom, and custom webpack config without eject using react-app-rewired.
 
-This template was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).<br/>
+This template was bootstrapped with [CRA](https://github.com/facebookincubator/create-react-app).<br/>
 Other libraries used;
 
 * [Mobx](https://mobx.js.org)
@@ -33,7 +33,7 @@ You can see demo CRA Semantic UI here: [DEMO CRA Semantic UI](https://cra_sui.su
 
 Lighthouse audit result
 
-![Lighthouse](Lighthouse_audit.png)
+![Lighthouse](lighthouse_audit.png)
 
 ## Requirements
 
