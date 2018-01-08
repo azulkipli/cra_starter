@@ -19,6 +19,9 @@ Other libraries used;
   * [Demo](#demo)
   * [Requirements](#requirements)
   * [Development](#development)
+    * [Start developing](#start-developing)
+    * [Routes](#routes)
+    * [Mobx stores](#mobx-stores)
   * [Testing](#testing)
   * [Production](#production)
 
@@ -27,6 +30,10 @@ Other libraries used;
 ## Demo
 
 You can see demo CRA Semantic UI here: [DEMO CRA Semantic UI](https://cra_sui.surge.sh)
+
+Lighthouse audit result
+
+![Lighthouse](Lighthouse_audit.png)
 
 ## Requirements
 
@@ -38,19 +45,13 @@ Make sure you have these software on your operating system, follow each instruct
 
 ## Development
 
-* Clone repository<br/>
+### Start developing
 
 ```BASH
-git clone https://github.com/sepulsa/frigate.git cra_starter_sui
+git clone https://github.com/azulkipli/cra_starter.git cra_starter_sui
 ```
 
-* Checkout to branch: **cra_starter_sui** <br/>
-
-```BASH
-cd cra_starter_sui
-```
-
-* Change to directory where main **package.json** exist then install node_modules.
+Change to directory where main **package.json** exist then install node_modules.
 
 ```BASH
 # execute 'yarn' on your commandline to install node_modules
@@ -61,38 +62,32 @@ yarn install v0.23.4
 [1/4] 🔍  Resolving packages...
 ```
 
-* Create .env file
+If there are no issue after execute `yarn / yarn install` , we can start developing the app `yarn start`. Please check example components available on directory: src/components
 
-This is hidden configuration file to store variable depend on current environment: **development** or **_production_**.<br/><br/>
-Your **_.env_** must be in directory where _package.json_ exist.
+### Routes
 
-```BASH
-# copy or rename development.env to .env
+All routes & components splitting defined in each file on directory: src/routes
 
-azul:cra_starter_sui/ (cra_starter_sui✗) $ pwd
-/Users/azul/Sites/cra_starter_sui
+### Mobx stores
 
-azul:cra_starter_sui/ (cra_starter_sui✗) $ cp development.env .env
+All mobx store include in one index file then you can inject it later on each components, check directory: src/stores
 
+```
 # show list files on current directory including hidden files
 azul@aZ: ~/Sites/cra_starter_sui master!
-$ ls -lah                                                                              [18:13:48]
-total 528
-drwxr-xr-x   13 azul  staff   442B Dec 28 18:07 .
-drwxr-xr-x+ 100 azul  staff   3.3K Dec 28 18:07 ..
--rw-r--r--    1 azul  staff    10B Dec 28 00:26 .env
-drwxr-xr-x   13 azul  staff   442B Dec 28 18:13 .git
--rw-r--r--    1 azul  staff   290B Dec 28 17:25 .gitignore
--rw-r--r--    1 azul  staff   1.0K Dec 28 18:07 LICENSE
--rw-r--r--    1 azul  staff   5.9K Dec 28 18:13 README.md
-drwxr-xr-x  937 azul  staff    31K Dec 28 18:00 node_modules
--rw-r--r--    1 azul  staff   449B Dec 28 17:28 package.json
-drwxr-xr-x    5 azul  staff   170B Dec 28 00:17 public
-drwxr-xr-x   13 azul  staff   442B Dec 28 11:24 src
--rw-r--r--    1 azul  staff   231K Dec 28 17:28 yarn.lock
+$ ls -lah                                                                            total 1128
+-rw-r--r--     1 azul  staff    1061 Dec 28 18:07 LICENSE
+-rw-r--r--     1 azul  staff    4162 Jan  8 14:52 README.md
+drwxr-xr-x    18 azul  staff     612 Jan  7 19:40 build
+-rw-r--r--     1 azul  staff     999 Jan  7 19:18 config-overrides.js
+-rw-r--r--@    1 azul  staff  268535 Jan  8 14:49 lighthouse_audit.png
+drwxr-xr-x  1068 azul  staff   36312 Jan  8 14:49 node_modules
+-rw-r--r--     1 azul  staff     932 Jan  7 19:17 package.json
+drwxr-xr-x    15 azul  staff     510 Jan  5 19:50 public
+drwxr-xr-x    19 azul  staff     646 Jan  7 19:04 src
+-rw-r--r--     1 azul  staff     163 Jan  7 19:20 tsconfig.json
+-rw-r--r--     1 azul  staff  279439 Jan  7 19:25 yarn.lock
 ```
-
-Start build your app, example components available on directory `src/components`
 
 ## Testing
 
